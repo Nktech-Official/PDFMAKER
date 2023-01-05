@@ -1,0 +1,22 @@
+{
+  "name": "pdfmaker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "nktech",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon --ignore ./DATA/output index.js",
+    "server": "nodemon --ignore ./DATA/ --ignore ./pdfTemp/  --ignore ./User-interface server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "convert-excel-to-json": "^1.7.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jspdf": "^2.5.1",
+    "puppeteer": "^19.4.1"
+  }
+}
