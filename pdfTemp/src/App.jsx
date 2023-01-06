@@ -4,10 +4,25 @@ import { read, utils } from "xlsx";
 
 export default function App() {
   const [data, setData] = useState([]);
-  const queryParameters = new URLSearchParams(window.location.search);
-  const filterType = queryParameters.get("filterType");
-  const filterVal = queryParameters.get("filterVal");
-  const margin = queryParameters.get("filterVal");
+  // const queryParameters = new URLSearchParams(window.location.search);
+  // const filterType = queryParameters.get("filterType");
+  // const filterVal = queryParameters.get("filterVal");
+  // const margin = queryParameters.get("filterVal");
+
+  async function check(IMG) {
+    // img.src = `../DATA/images/${IMG}.jpg`;
+    var image = new Image();
+    var url_image = `../DATA/images/${IMG}.jpg`;
+    image.src = url_image;
+    if (image.width == 0) {
+       return false;
+    } else {
+       return true;
+    }
+    
+  }
+  
+  
 
   async function excelJson(file) {
     const f = await (
@@ -34,7 +49,7 @@ export default function App() {
           const img = item["_image"]
           return (
             <>
-           { img?
+           {img?
               <div key={key}>
               {(key + 1) % 2 == 0 ? (
                 <Card pos="reverse" i={{ ...item }} />

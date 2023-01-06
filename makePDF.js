@@ -1,6 +1,4 @@
-const fs = require('fs');
 const env = require("dotenv")
-const excelToJson = require('convert-excel-to-json');
 const puppeteer = require('puppeteer')
 env.config()
 
@@ -17,35 +15,8 @@ async function printPDF() {
     return pdf
 }
 
-function excelJson(file) {
-
-    const excelData = excelToJson({
-        sourceFile: file
-    });
-    const data = excelData.Sheet1;
-    const d = []
-    for (let i = 1; i < data.length; i++) {
-        d.push({
-            "code": data[i].A,
-            "name": data[i].B,
-            "prize": data[i].C,
-            "size": data[i].D,
-            "color": data[i].E,
-            "image": data[i].F
-
-        })
-
-
-    }
-    return d;
-}
-
-// const ed = excelJson("./DATA/daat.ods")
-// fs.writeFile("./daat.json", JSON.stringify(ed), () => { })
-// console.log(data.Sheet1[0]);
-
 printPDF()
-module.exports = { printPDF, excelJson }
+module.exports = { printPDF }
 
 
 // allsave boat telegram
