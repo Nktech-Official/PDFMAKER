@@ -21,7 +21,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    excelJson("DATA/daat.ods");
+    excelJson("DATA/daat.xlsx");
     // console.log(`${filterType}: ${filterVal}`);
     // console.log(queryParameters);
   }, []);
@@ -32,7 +32,8 @@ export default function App() {
         <h1 className="hi">PTC Toys Catalogue</h1>
         {data.map((item, key) => {
           return (
-            <div key={key}>
+            <>
+           { <div key={key}>
               {(key + 1) % 2 == 0 ? (
                 <Card pos="reverse" i={{ ...item }} />
               ) : (
@@ -47,7 +48,8 @@ export default function App() {
                   <div className="margin"></div>
                 </>
               ) : null}
-            </div>
+            </div>}
+            </>
           );
         })}
       </div>

@@ -25,7 +25,8 @@ body {
   flex-direction: row-reverse;
 }
 .image {
-  height: 100%;
+  height: fit- content;
+  /* max-height: 100%; */
   width: 60%;
   display: flex;
   justify-content: center;
@@ -33,9 +34,25 @@ body {
   /* border: 1px solid black; */
 }
 
+
+.img {
+  /* background-color: bisque; */
+  height: 100%;
+  width: auto;
+  padding: 8px;
+  border-radius: 10px;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
 .image img {
   aspect-ratio: auto;
-  height: 100%;
+  height: auto;
+  width: auto;
+  max-height: 100%;
+  max-width: 100%;
   border-radius: 15px;
   object-fit: contain;
   /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
@@ -44,17 +61,6 @@ body {
   /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
   box-shadow: rgb(0 0 0) 0px 10px 20px, rgb(0 0 0 / 23%) 0px 6px 6px;
-}
-.img {
-  /* background-color: bisque; */
-  height: 98%;
-  width: auto;
-  padding: 8px;
-  border-radius: 10px;
-  /* border: 1px solid black; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .data {
   height: 100%;

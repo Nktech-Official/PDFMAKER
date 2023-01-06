@@ -37,7 +37,7 @@ export default function Card(props) {
               </div>
             );
           })}
-          <div>
+          {/* <div>
             Prize: &#8377;{" "}
             {props.i["_margin"]
               ? Math.round(
@@ -45,7 +45,7 @@ export default function Card(props) {
                     (props.i["_margin"] * props.i["_prize"]) / 100
                 )
               : props.i["_prize"]}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
