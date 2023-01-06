@@ -31,9 +31,11 @@ export default function App() {
       <div className="main">
         <h1 className="hi">PTC Toys Catalogue</h1>
         {data.map((item, key) => {
+          const img = item["_image"]
           return (
             <>
-           { <div key={key}>
+           { img?
+              <div key={key}>
               {(key + 1) % 2 == 0 ? (
                 <Card pos="reverse" i={{ ...item }} />
               ) : (
@@ -48,7 +50,7 @@ export default function App() {
                   <div className="margin"></div>
                 </>
               ) : null}
-            </div>}
+            </div>:null}
             </>
           );
         })}

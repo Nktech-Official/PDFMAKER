@@ -1,16 +1,17 @@
 const fs = require('fs');
+const env = require("dotenv")
 const excelToJson = require('convert-excel-to-json');
 const puppeteer = require('puppeteer')
-
+env.config()
 
 // import html template;
 
 
 async function printPDF() {
-    const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
-    await page.goto('http://localhost:5173/', { waitUntil: 'networkidle0' });
-    const pdf = await page.pdf({ format: 'A4', path: "./pdf.pdf", printBackground: true, scale: 1.05, displayHeaderFooter: true, footerTemplate: "pageno:1" });
+    await page.goto(process.env.url, { waitUntil: 'networkidle0' });
+    const pdf = await page.pdf({ format: 'A4', path: process.env.location , printBackground: true });
 
     await browser.close();
     return pdf

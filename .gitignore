@@ -3,4 +3,7 @@ DATA/
 pdfTemp/DATA
 *.pdf
 ./pdf.pdf
+.env
 output
+*.xlsx
+*.ods
