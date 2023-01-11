@@ -12,9 +12,12 @@ body {
   width: 98vw;
 } */
 
-.container {
-  width: 892px;
+.main {
+  width: 991px;
+}
 
+.container {
+  width: 100%;
   margin: auto;
   display: flex;
   flex-direction: row;

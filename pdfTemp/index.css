@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&family=Ubuntu&display=swap");
+
+#page1-div {
+  position: relative;
+  width: 991px;
+  height: 1403px;
+  margin: 0px;
+  padding: 0px;
+  z-index: 100;
+}
+#title {
+  position: absolute;
+  top: 110px;
+  left: 155px;
+  white-space: nowrap;
+  font-size: 86px;
+  color: #4472c4;
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+}
+#sub-heading {
+  position: absolute;
+  top: 349px;
+  left: 108px;
+  white-space: nowrap;
+  color: white;
+  font-size: 51px;
+  letter-spacing: 1.9px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 600;
+}
+
+#info {
+  position: absolute;
+  top: 988px;
+  left: 628px;
+  white-space: nowrap;
+  height: fit-content;
+}
+
+.ft10 {
+  margin-top: 10px;
+  margin-bottom: 18px;
+  width: fit-content;
+  font-family: "Ubuntu", sans-serif;
+}
