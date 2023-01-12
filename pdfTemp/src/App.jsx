@@ -74,7 +74,6 @@ export default function App() {
                   <>
                     <div className="waterMark">PTC TOYS CATALOGUE</div>{" "}
                     <div className="page-break"></div>{" "}
-                    <div className="margin"></div>
                   </>
                 ) : null}
                 {/* {setPb(pb + 1)} */}
@@ -84,7 +83,6 @@ export default function App() {
                 <MultiCard img={img} i={{ ...item }} />
                 <div className="waterMark">PTC TOYS CATALOGUE</div>{" "}
                 <div className="page-break"></div>{" "}
-                <div className="margin"></div>
               </>
             )}
           </div>

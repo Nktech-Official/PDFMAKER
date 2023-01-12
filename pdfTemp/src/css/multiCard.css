@@ -1,5 +1,6 @@
 .container-multi {
   height: 1200px;
+  width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -20,9 +21,6 @@
   max-height: 35%;
   padding: 8px;
   border-radius: 10px;
-  /* border: 1px solid black; */
-  /* display: flex; */
-  /* justify-content: center; */
   align-items: center;
 }
 
@@ -49,7 +47,6 @@
   font-weight: bold;
   margin-left: 53px;
   font-style: oblique;
-  /* text-decoration: underline; */
   border-bottom-width: 2px;
   border-bottom-style: solid;
 }
