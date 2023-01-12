@@ -9,12 +9,12 @@ function capitalizeFirstLetter(string) {
 
 export default function MultiCard(props) {
   const { img } = props;
-  console.log(props);
+  // console.log(props);
   return (
     <div className="container-multi">
       <div className="image-multi">
         {img.map((item, key) => {
-          console.log(item);
+          // console.log(item);
           return (
             <div key={key} className="img-multi">
               <img src={`../../DATA/images/${item}.jpg`} alt="" />

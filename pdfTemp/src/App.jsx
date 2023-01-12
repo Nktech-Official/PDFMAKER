@@ -3,6 +3,8 @@ import Card from "./components/Card";
 import MultiCard from "./components/MultiCard";
 import { read, utils } from "xlsx";
 
+let x = 0;
+
 export default function App() {
   const [data, setData] = useState([]);
   const [pb, setPb] = useState(0);
@@ -50,22 +52,25 @@ export default function App() {
     <div className="main">
       {data.map((item, key) => {
         const img = item["_image"].split(",");
-        if (img.length !== 1) {
+        if (img.length === 1) {
+          x += 1;
         }
 
-        console.log(img);
         return (
           <div key={key}>
             {img.length === 1 ? (
               <>
-                {(key + 1) % 2 == 0 ? (
-                  <Card pos="reverse" i={{ ...item }} />
+                {x % 2 == 0 ? (
+                  <>
+                    {console.log(x)}
+                    <Card pos="reverse" i={{ ...item }} />
+                  </>
                 ) : (
                   <Card i={{ ...item }} />
                 )}
                 <div className="margin-10"></div>
 
-                {(key + 1) % 2 == 0 && key + 1 != data.length ? (
+                {x % 2 == 0 && x != data.length ? (
                   <>
                     <div className="waterMark">PTC TOYS CATALOGUE</div>{" "}
                     <div className="page-break"></div>{" "}

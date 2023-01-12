@@ -1,6 +1,7 @@
 body {
   background-color: blanchedalmond;
 }
+
 .hi {
   text-align: center;
   margin-bottom: 10px;
@@ -23,6 +24,7 @@ body {
   flex-direction: row;
   height: 460px;
   margin: 10 10px;
+  margin-top: 64px;
 }
 
 .container-reverse {
