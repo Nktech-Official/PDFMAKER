@@ -6,10 +6,10 @@ env.config()
 
 
 async function printPDF() {
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
     await page.goto(process.env.url, { waitUntil: 'networkidle0' });
-    const pdf = await page.pdf({ format: 'A4', path: process.env.location , printBackground: true });
+    const pdf = await page.pdf({ format: 'A4', path: process.env.location, printBackground: true });
 
     await browser.close();
     return pdf

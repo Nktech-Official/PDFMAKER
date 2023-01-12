@@ -1,5 +1,5 @@
 import React from "react";
-import * as css from "../index.css";
+import * as css from "../css/card.css";
 
 function capitalizeFirstLetter(string) {
   return typeof string === "string" || string instanceof String

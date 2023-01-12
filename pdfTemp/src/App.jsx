@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Card from "./components/Card";
+import MultiCard from "./components/MultiCard";
 import { read, utils } from "xlsx";
+
+let x = 0;
 
 export default function App() {
   const [data, setData] = useState([]);
+  const [pb, setPb] = useState(0);
   // const queryParameters = new URLSearchParams(window.location.search);
   // const filterType = queryParameters.get("filterType");
   // const filterVal = queryParameters.get("filterVal");
@@ -11,18 +15,21 @@ export default function App() {
 
   async function check(IMG) {
     // img.src = `../DATA/images/${IMG}.jpg`;
-    var image = new Image();
-    var url_image = `../DATA/images/${IMG}.jpg`;
-    image.src = url_image;
-    if (image.width == 0) {
-       return false;
-    } else {
-       return true;
-    }
-    
+    // var image = new Image();
+    // var url_image = `../DATA/images/${IMG}.jpg`;
+    // image.src = url_image;
+    // if (image.width == 0) {
+    //    return false;
+    // } else {
+    //    return true;
+    // }
+    try {
+      const img = require(`../DATA/images/${IMG}.jpg`);
+      console.log(`../DATA/images/${IMG}.jpg`);
+      console.log(img);
+    } catch {}
+    console.log("er");
   }
-  
-  
 
   async function excelJson(file) {
     const f = await (
@@ -42,34 +49,45 @@ export default function App() {
   }, []);
 
   return (
-    <>
-      <div className="main">
-        <h1 className="hi">PTC Toys Catalogue</h1>
-        {data.map((item, key) => {
-          const img = item["_image"]
-          return (
-            <>
-           {img?
-              <div key={key}>
-              {(key + 1) % 2 == 0 ? (
-                <Card pos="reverse" i={{ ...item }} />
-              ) : (
-                <Card i={{ ...item }} />
-              )}
-              <div className="margin-10"></div>
+    <div className="main">
+      {data.map((item, key) => {
+        const img = item["_image"].split(",");
+        if (img.length === 1) {
+          x += 1;
+        }
 
-              {(key + 1) % 2 == 0 && key + 1 != data.length ? (
-                <>
-                  <div className="waterMark">PTC TOYS CATALOGUE</div>{" "}
-                  <div className="page-break"></div>{" "}
-                  <div className="margin"></div>
-                </>
-              ) : null}
-            </div>:null}
-            </>
-          );
-        })}
-      </div>
-    </>
+        return (
+          <div key={key}>
+            {img.length === 1 ? (
+              <>
+                {x % 2 == 0 ? (
+                  <>
+                    {console.log(x)}
+                    <Card pos="reverse" i={{ ...item }} />
+                  </>
+                ) : (
+                  <Card i={{ ...item }} />
+                )}
+                <div className="margin-10"></div>
+
+                {x % 2 == 0 && x != data.length ? (
+                  <>
+                    <div className="waterMark">PTC TOYS CATALOGUE</div>{" "}
+                    <div className="page-break"></div>{" "}
+                  </>
+                ) : null}
+                {/* {setPb(pb + 1)} */}
+              </>
+            ) : (
+              <>
+                <MultiCard img={img} i={{ ...item }} />
+                <div className="waterMark">PTC TOYS CATALOGUE</div>{" "}
+                <div className="page-break"></div>{" "}
+              </>
+            )}
+          </div>
+        );
+      })}
+    </div>
   );
 }
