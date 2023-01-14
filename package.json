@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon --ignore ./DATA/output index.js",
-    "server": "nodemon --ignore ./DATA/ --ignore ./pdfTemp/  --ignore ./User-interface server.js"
+    "server": "nodemon --ignore ./DATA/ --ignore ./pdfTemp/  --ignore ./User-interface server.js",
+    "buildtemplate": "npm run build --prefix pdfTemp "
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
