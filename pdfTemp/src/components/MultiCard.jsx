@@ -8,16 +8,17 @@ function capitalizeFirstLetter(string) {
 }
 
 export default function MultiCard(props) {
-  const { img } = props;
+  const { images } = props;
+
   // console.log(props);
   return (
     <div className="container-multi">
       <div className="image-multi">
-        {img.map((item, key) => {
+        {images.map((item, key) => {
           // console.log(item);
           return (
             <div key={key} className="img-multi">
-              <img src={`../../DATA/images/${item}.jpg`} alt="" />
+              <img src={URL.createObjectURL(item)} alt="" />
             </div>
           );
         })}
