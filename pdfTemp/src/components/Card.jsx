@@ -8,6 +8,7 @@ function capitalizeFirstLetter(string) {
 }
 
 export default function Card(props) {
+  console.log(props.images);
   return (
     <div
       className={
@@ -16,7 +17,11 @@ export default function Card(props) {
     >
       <div className="image">
         <div className="img">
-          <img src={`../../DATA/images/${props.i["_image"]}.jpg`} alt="" />
+          <img
+            src={URL.createObjectURL(props.images[0])}
+            quality={0.6}
+            alt=""
+          />
         </div>{" "}
       </div>
       <div className={props.pos == "reverse" ? "data data-reverse" : "data"}>

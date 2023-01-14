@@ -82,7 +82,7 @@ body {
   z-index: 10;
   font-size: 65px;
   width: 100vw;
-  color: rgba(233, 23, 233, 0.76);
+  color: rgba(233, 23, 233, 0.116);
   transform: rotate(-50deg);
   opacity: 0.08;
   font-weight: bold;
