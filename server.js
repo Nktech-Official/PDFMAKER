@@ -1,24 +1,25 @@
 const express = require('express')
 const dotenv = (require('dotenv')).config()
-const { printPDF } = require("./makePDF.js")
 
 
 const app = express()
-const port = 3000
+const port = process.env.port || 3000
+
+app.use(express.static('./pdfTemp/dist'))
 
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
 
-app.post("/pdfGenrate", async (req, res) => {
-    console.log(req.data);
-    const data = await printPDF();
-    res.set({ 'Content-Type': 'application/pdf', 'Content-Length': data.length })
-    res.send(data)
+const start = () => {
+    const server = app.listen(port, () => {
+        console.log(`Example app listening on port ${port}`)
+    })
+    return server
 
-})
+}
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+// 
+if (!module.parent) {
+    start()
+}
+
+module.exports = { start, port }

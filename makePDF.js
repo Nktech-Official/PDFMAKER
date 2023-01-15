@@ -22,28 +22,24 @@ function compressPDF(input) {
 
 
 
-async function printPDF(compress) {
+async function printPDF({ compress = false, imgDir, xslxData }) {
     const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
     await page.goto(process.env.url, { waitUntil: 'networkidle0' });
     const excelData = await page.$("input[name=xlsx]");
-    await excelData.uploadFile('./DATA/daat.xlsx');
+    await excelData.uploadFile(xslxData);
 
-    const dir = "./DATA/images/"
+    const dir = imgDir
     let filesInDr = []
     const files = await fs.readdir(dir);
     for (const file of files) {
         filesInDr.push(path.join(__dirname, `${dir}/${file}`));
     }
-
-    const imageData = await page.$("input[name=img]");
     const [FileChooser] = await Promise.all([
         page.waitForFileChooser(),
         page.click("input[name=img]"), // some button that triggers file selection
     ]);
     await FileChooser.accept(filesInDr);
-
-
     await page.waitForSelector(".container")
     await page.evaluate(async () => {
         const selectors = Array.from(document.querySelectorAll("img"));
@@ -57,19 +53,24 @@ async function printPDF(compress) {
     })
     const pdf = await page.pdf({ format: 'A4', path: process.env.location, printBackground: true });
     await browser.close();
+    console.log("PDF Catelouge Generated");
     if (compress) {
 
         compressPDF(process.env.location)
+        console.log("PDF Catelouge compressed");
+
     }
     return pdf
 }
 
-printPDF(true)
+// 
+if (!module.parent) {
+    printPDF(true)
+}
 
 
 
 
-module.exports = { printPDF }
+module.exports = { printPDF, sleep }
 
 
-// allsave boat telegram
