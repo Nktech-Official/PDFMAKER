@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "",
   "license": "MIT",
+  "homepage": "./",
   "scripts": {
     "start": "vite",
     "preview": "vite preview",
