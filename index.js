@@ -3,6 +3,9 @@ const { start } = require("./server.js")
 const { DirImg, compress, dataXlsx } = require("./argvFilter.js")
 
 
+
+
+
 const argv = process.argv;
 
 async function main() {
